@@ -1,15 +1,31 @@
 # Bank-of-flatiron-code-challenge
-This project, involves building out a React application that displays a list of y recent bank transactions, and other features.
 
-## Prerequisite to use the data
-Make sure to have the folowing working to use the application
-Run this command to get the backend started:
-json-server --watch db.json
+### (My School Project)
 
-Test your server by visiting this route in the browser:
-http://localhost:8001/transactions
++ [Description](#overall-project-description)
++ [Setup instructions](#setup-instructions)
++ [Technology Used](#languages-and-frameworks)
++ [License](#License)
++ [Authors Info](#Author)
 
-## Deliverables
+## Overall Project Description
+-You have been tasked by the Royal bank of Flatiron to build a web application where users can see a list of their recent bank transactions, and other features.
+
+## Setup Instructions
+Run this command to get the backend started
+---jsx
+  json-server --watch db.json
+---
+
+
+
+
+## User Stories
+- Display a list of the user's recent transactions.
+- Search for a particular transaction based on the description.
+- Add a new transaction by inputting the required information
+
+## Features
 As a user, one is able to perform simillar tasks that are comon in a bank
 br
  ### Search bar
@@ -20,6 +36,23 @@ br
 
 ### See a list of previous user transactions 
  The app displays a table containing a some of the user transactions. The table shows th date of transactions, a description of what was bought , the category of each transaction and The amount spent
+
+ ## Languages and Frameworks
+- React
+- JSX
+- Html
+- CSS
+- Javascript
+
+## Contributing 
+Contributions to the project are welcome.
+
+## License
+[MIT LICENCE] (LICENSE)
+
+## AUTHOR
+-[Caren Wakuloba](https://github.com/carenwaks)
+
 
  
 
