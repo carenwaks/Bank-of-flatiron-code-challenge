@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function TransacForm () {
+
+function TransacForm ({onSubmitting}) {
     const [formData,setFormData] =useState({
         "date":"",
         "description":"",
@@ -11,7 +12,13 @@ function TransacForm () {
 
     function handleSubmit (event) {
         event.preventDefault();
-        onSubmit(formData)
+        onSubmitting(formData)
+        setFormData({
+            "date":"",
+            "description":"",
+            "category":"",
+            "amount":0 
+        })
     }
     function handleChange (event) {
         setFormData({...formData,[event.target.name]:event.target.value})
@@ -23,10 +30,10 @@ function TransacForm () {
             <label htmlFor="date">
                 Date               
             </label>
-            <input value={formData.date} type="date" id="date" />
-            <input value={formData.description} type="text" placeholder="Description"/>
-            <input value={formData.category} type="text" placeholder="Category"/>
-            <input  value={formData.amount}type="number" placeholder="Amount"/>
+            <input  type="date" id="date" />
+            <input value={formData.description} type="text" placeholder="Description" onChange={handleChange}/>
+            <input value={formData.category} type="text" placeholder="Category" onChange={handleChange}/>
+            <input  value={formData.amount}type="number" placeholder="Amount" onChange={handleChange}/>
         </form>
         <div>
             <button> Add Transaction</button>

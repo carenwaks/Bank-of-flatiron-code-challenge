@@ -2,19 +2,42 @@ import './App.css';
 import React,{ useEffect,useState} from 'react';
 import Transactions from './components/Transactions';
 import TransacForm from './components/TransacForm';
-import CategoryFilter from './components/CategoryFilter';
+import TransacFilter from './components/TransacFilter';
 
 function App() {
-  
-  
+   const [transactions,setTransactions] = useState({})
+   useEffect(() => {
+    fetch("http://localhost:8001/transactions")
+      .then((r) => r.json())
+      .then((transactions) => setTransactions(transactions))
+    }, []); 
+    console.log(transactions);
+
+    function handleTransacUpdate (newTransac) {
+      
+      const postFormData ={
+        method: "POST",
+        header: {
+          "Content-Type" : "application/json"
+        },
+        body:JSON.stringify(newTransac)
+      }
+
+      fetch("http://localhost:8001/transactions",postFormData)
+      .then((r) => r.json())
+      .then(newTransacPost => setTransactions(transaction => [...transaction,newTransacPost]))
+      
+    }
+    
+
   return (
     <div className="App">
       <header className="App-header">   
-      Bank of FlatIron  
+      The Royal Bank of FlatIron  
       </header>
-      <CategoryFilter />
-      <TransacForm />
-      <Transactions />
+        <TransacFilter />
+        <TransacForm onSubmitting={handleTransacUpdate}/> 
+        <Transactions transactions={transactions} />                 
     </div>
   );
 }

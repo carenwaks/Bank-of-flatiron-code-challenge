@@ -1,19 +1,22 @@
-import React, { useEffect} from "react";
-import TransacItem from "./TransacItem";
+import React from "react";
+import TransacItem from "./TransacItem"
 
-function Transactions () {
-    
-  useEffect(() => {
-    fetch()
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-    }, []);
-
-    return (<>
-        <TransacItem transaction={transaction}/>
-        </>)
+function Transactions ({transactions}) { 
+ 
+  return (
+    <table s>
+      <tr>
+        <th>Date</th>
+        <th>Description</th> 
+        <th>Category</th>               
+        <th>Amount</th>        
+      </tr>
+      {transactions.map(transaction => {
+        return <TransacItem key={transaction.id} date={transaction.date} description={transaction.description}
+        category={transaction.category} amount={transaction.amount}/>
+      })}
+         
+    </table>
+  )
 }
-
 export default Transactions

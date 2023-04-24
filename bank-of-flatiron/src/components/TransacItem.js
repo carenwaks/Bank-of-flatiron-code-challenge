@@ -1,21 +1,15 @@
 import React from "react";
 
-function TransacItem({transaction}) {
+function TransacItem({date,description,category,amount}) {
 
   return (
-    <table>
         <tr>
-            <th>Date</th>
-            <th>Description</th>                <th>Category</th>
-            <th>Amount</th>
+            <td>{date}</td>
+            <td>{description}</td>
+            <td>{category}</td>
+            <td>{amount}</td>
         </tr>
-        <tr>
-            <td>{transaction.date}</td>
-            <td>{transaction.description}</td>
-            <td>{transaction.category}</td>
-            <td>{transaction.amount}</td>
-        </tr>
-    </table>
+    
   );
 }
 
