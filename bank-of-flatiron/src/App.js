@@ -28,6 +28,10 @@ function App() {
       .then(newTransacPost => setTransactions(transaction => [...transaction,newTransacPost]))
       
     }
+
+    function handleSearch (search) {
+      setTransactions(transactions => transactions.filter(transaction => transaction.description === search.value))
+    }
     
 
   return (
@@ -35,7 +39,7 @@ function App() {
       <header className="App-header">   
       The Royal Bank of FlatIron  
       </header>
-        <TransacFilter />
+        <TransacFilter onSearching={handleSearch}/>
         <TransacForm onSubmitting={handleTransacUpdate}/> 
         <Transactions transactions={transactions} />                 
     </div>

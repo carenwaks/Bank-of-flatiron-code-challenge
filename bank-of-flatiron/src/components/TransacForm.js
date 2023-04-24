@@ -31,9 +31,9 @@ function TransacForm ({onSubmitting}) {
                 Date               
             </label>
             <input  type="date" id="date" />
-            <input value={formData.description} type="text" placeholder="Description" onChange={handleChange}/>
-            <input value={formData.category} type="text" placeholder="Category" onChange={handleChange}/>
-            <input  value={formData.amount}type="number" placeholder="Amount" onChange={handleChange}/>
+            <input value={formData.description} type="text" placeholder="Description" />
+            <input value={formData.category} type="text" placeholder="Category" />
+            <input  value={formData.amount}type="number" placeholder="Amount" />
         </form>
         <div>
             <button> Add Transaction</button>

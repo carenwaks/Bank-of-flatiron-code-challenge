@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 
-function TransacFilter() {
-  function handledescriptionSearch () {
-    console.log("filter");     
+function TransacFilter({onSearching}) {
+  const [search,setSearch]=useState("")
+  function handledescriptionSearch (event) {
+    setSearch(event.target.value)
+    onSearching(search)
   }
 
   return (
     <div className="descriptions">
         <form>
-         <input  type="text" placeholder="Search recent transactions" />
+         <input  value={search} type="text" placeholder="Search recent transactions" />
         <button onClick={handledescriptionSearch}>search</button>
         </form>
     </div>
