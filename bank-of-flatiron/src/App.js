@@ -17,7 +17,7 @@ function App() {
       
       const postFormData ={
         method: "POST",
-        header: {
+        headers: {
           "Content-Type" : "application/json"
         },
         body:JSON.stringify(newTransac)
