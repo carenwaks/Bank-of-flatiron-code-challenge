@@ -4,7 +4,7 @@ import TransacItem from "./TransacItem"
 function Transactions ({transactions}) { 
  
   return (
-    <table s>
+    <table >
       <tr>
         <th>Date</th>
         <th>Description</th> 

@@ -5,9 +5,9 @@ import TransacForm from './components/TransacForm';
 import TransacFilter from './components/TransacFilter';
 
 function App() {
-   const [transactions,setTransactions] = useState({})
+   const [transactions,setTransactions] = useState([])
    useEffect(() => {
-    fetch("http://localhost:8001/transactions")
+    fetch("http://localhost:3001/transactions")
       .then((r) => r.json())
       .then((transactions) => setTransactions(transactions))
     }, []); 
@@ -23,7 +23,7 @@ function App() {
         body:JSON.stringify(newTransac)
       }
 
-      fetch("http://localhost:8001/transactions",postFormData)
+      fetch("http://localhost:3001/transactions",postFormData)
       .then((r) => r.json())
       .then(newTransacPost => setTransactions(transaction => [...transaction,newTransacPost]))
       
