@@ -5,16 +5,20 @@ function Transactions ({transactions}) {
  
   return (
     <table >
-      <tr>
-        <th>Date</th>
-        <th>Description</th> 
-        <th>Category</th>               
-        <th>Amount</th>        
+      <thead>
+      < tr>        
+          <th>Date</th>
+          <th>Description</th> 
+          <th>Category</th>               
+          <th>Amount</th>               
       </tr>
-      {transactions.map(transaction => {
-        return <TransacItem key={transaction.id} date={transaction.date} description={transaction.description}
-        category={transaction.category} amount={transaction.amount}/>
-      })}
+      </thead> 
+      <tbody>
+        {transactions.map(transaction => {
+          return <TransacItem key={transaction.id} date={transaction.date} description={transaction.description}
+          category={transaction.category} amount={transaction.amount}/>
+        })}
+      </tbody>
          
     </table>
   )

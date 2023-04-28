@@ -3,6 +3,7 @@ import React from "react";
 function TransacItem({date,description,category,amount}) {
 
   return (
+      
         <tr>
             <td>{date}</td>
             <td>{description}</td>

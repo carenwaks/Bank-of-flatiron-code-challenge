@@ -11,7 +11,7 @@ function App() {
       .then((r) => r.json())
       .then((transactions) => setTransactions(transactions))
     }, []); 
-    console.log(transactions);
+    //  console.log(transactions);
 
     function handleTransacUpdate (newTransac) {
       
@@ -25,12 +25,15 @@ function App() {
 
       fetch("http://localhost:3001/transactions",postFormData)
       .then((r) => r.json())
-      .then(newTransacPost => setTransactions(transaction => [...transaction,newTransacPost]))
+      .then(newTransac => setTransactions(transaction => [...transaction,newTransac]))
+      .catch(error => alert(error))
       
     }
 
     function handleSearch (search) {
+      console.log(search);
       setTransactions(transactions => transactions.filter(transaction => transaction.description === search.value))
+
     }
     
 
