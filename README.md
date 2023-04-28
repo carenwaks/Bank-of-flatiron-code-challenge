@@ -12,13 +12,23 @@
 -You have been tasked by the Royal bank of Flatiron to build a web application where users can see a list of their recent bank transactions, and other features.
 
 ## Setup Instructions
-Run this command to get the backend started
----jsx
-  json-server --watch db.json
----
+Clone the repository and cd into bank of flatiron by running the code :
+### `cd Bank-of-flatiron-code-challenge`
 
+then cd into the react app by runnng:
+### `cd bank-of-flatiron`
 
+Run this command to install and run the backend server:
+### npm install json-server 
 
+then run :
+### `json-server --watch db.json  --port 3001`
+
+Test your server by visiting the route in the browser
+## http://localhost:3001/transactions
+
+when successful open the react app on the browser by running
+### `npm start`
 
 ## User Stories
 - Display a list of the user's recent transactions.

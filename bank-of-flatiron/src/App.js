@@ -6,6 +6,7 @@ import TransacFilter from './components/TransacFilter';
 
 function App() {
    const [transactions,setTransactions] = useState([])
+   const [search,setSearch] = useState("")   
    useEffect(() => {
     fetch("http://localhost:3001/transactions")
       .then((r) => r.json())
@@ -26,25 +27,23 @@ function App() {
       fetch("http://localhost:3001/transactions",postFormData)
       .then((r) => r.json())
       .then(newTransac => setTransactions(transaction => [...transaction,newTransac]))
-      .catch(error => alert(error))
-      
+      .catch(error => alert(error))      
+    } 
+
+    const filterTransactions=transactions.filter(transaction => search === ""? true: transaction.description.includes(search))
+    function handleOnSearch (search) {
+      setSearch(search)
     }
 
-    function handleSearch (search) {
-      console.log(search);
-      setTransactions(transactions => transactions.filter(transaction => transaction.description === search.value))
-
-    }
     
-
   return (
     <div className="App">
       <header className="App-header">   
       The Royal Bank of FlatIron  
       </header>
-        <TransacFilter onSearching={handleSearch}/>
+        <TransacFilter onSearching={handleOnSearch}/>
         <TransacForm onSubmitting={handleTransacUpdate}/> 
-        <Transactions transactions={transactions} />                 
+        <Transactions transactions={filterTransactions} />                 
     </div>
   );
 }
